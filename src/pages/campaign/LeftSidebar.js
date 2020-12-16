@@ -3,7 +3,7 @@ import { Card, CardBody, CardHeader, NavLink, Button } from 'reactstrap';
 import {Link} from 'react-router-dom';
 
 
-class Accordions extends Component {
+class LeftSidebar extends Component {
 
     constructor(props) {
         super(props);
@@ -64,4 +64,4 @@ class Accordions extends Component {
     }
 };
 
-export default Accordions;
+export default LeftSidebar;

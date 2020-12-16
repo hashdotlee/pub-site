@@ -15,12 +15,22 @@ const Dashboard = React.lazy(() => import('../pages/dashboard'));
 // campaign
 const Campaign = React.lazy(() => import('../pages/campaign'));
 const CampaignResult = React.lazy(() => import('../pages/campaign/CampaignResult'));
-// report
-const Report = React.lazy(() => import('../pages/report'));
+// reports
+const ReportCampaign = React.lazy(() => import('../pages/report/Campaign'));
+const ReportClick = React.lazy(() => import('../pages/report/Click'));
+const ReportConversion = React.lazy(() => import('../pages/report/Conversion'));
+const ReportUTM = React.lazy(() => import('../pages/report/UTM'));
 // tools
-const Tools = React.lazy(() => import('../pages/tool'));
+const ToolsAPI = React.lazy(() => import('../pages/tool/Profile/APIKey'));
+const ToolsDealCoupon = React.lazy(() => import('../pages/tool/DealCoupon'));
+const ToolsDeepLink = React.lazy(() => import('../pages/tool/DeepLink'));
+const ToolsPostback = React.lazy(() => import('../pages/tool/Postback'));
+const ToolsPostbackLog = React.lazy(() => import('../pages/tool/PostbackLog'));
+const ToolsProductLink = React.lazy(() => import('../pages/tool/ProductLink'));
+const ToolsTrackLink = React.lazy(() => import('../pages/tool/TrackLink'));
 // payment
-const Payment = React.lazy(() => import('../pages/payment'));
+const CrossCheck = React.lazy(() => import('../pages/payment/CrossCheck'));
+const PaymentHis = React.lazy(() => import('../pages/payment/PaymentHis'));
 // apps
 
 
@@ -89,7 +99,6 @@ const campaignResultRoutes = {
 };
 // report
 const reportRoutes = {
-    path: '/report',
     name: 'Báo cáo',
     header: 'Navigation',
     icon: FeatherIcon.Book,
@@ -101,7 +110,7 @@ const reportRoutes = {
             header: 'Navigation',
             icon: FeatherIcon.ShoppingBag,
             route: PrivateRoute,
-            component: Report
+            component: ReportConversion
         },
         {
             path: '/report/click-traffic',
@@ -110,7 +119,7 @@ const reportRoutes = {
             header: 'Navigation',
             icon: FeatherIcon.MousePointer,
             route: PrivateRoute,
-            component: Report
+            component: ReportClick
         },
         {
             path: '/report/campaigns',
@@ -119,7 +128,7 @@ const reportRoutes = {
             header: 'Navigation',
             icon: FeatherIcon.Truck,
             route: PrivateRoute,
-            component: Report
+            component: ReportCampaign
         },
         {
             path: '/report/utm',
@@ -128,91 +137,110 @@ const reportRoutes = {
             header: 'Navigation',
             icon: FeatherIcon.ShoppingBag,
             route: PrivateRoute,
-            component: Report
+            component: ReportUTM
         }
     ]
 };
 // tools
 const toolsRoutes = {
-    path: '/tools',
     name: 'Công cụ',
     header: 'Navigation',
     icon: FeatherIcon.Tool,
     children: [
         {
-            path: '/tools',
+            path: '/tools/product-link',
             name: 'Product Link',
             icon: FeatherIcon.Link,
             header: 'Navigation',
-            component: Tools,
+            component: ToolsProductLink,
             roles: ['Admin'],
             route: PrivateRoute
         },
         {
-            path: '/tools',
+            path: '/tools/deep-link',
             name: 'Deep link',
             icon: FeatherIcon.Link2,
-            component: Tools,
+            component: ToolsDeepLink,
             header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
         {
-            path: '/tools',
+            path: '/tools/api',
             name: 'API',
             icon: FeatherIcon.Cloud,
-            component: Tools,
+            component: ToolsAPI,
             header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
         {
-            path: '/tools',
+            path: '/tools/deals',
             name: 'Deal coupon',
             icon: FeatherIcon.CreditCard,
-            component: Tools,
+            component: ToolsDealCoupon,
             header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
         {
-            path: '/tools',
             name: 'Postback URL',
             icon: FeatherIcon.ArrowUpLeft,
-            component: Tools,
             header: 'Navigation',
-            roles: ['Admin'],
-            route: PrivateRoute
+            children:[{
+                path: '/tools/postback',
+                name: 'Postback URL',
+                icon: FeatherIcon.Camera,
+                component: ToolsPostback,
+                header: 'Navigation',
+                roles: ['Admin'],
+                route: PrivateRoute
+            },
+            {
+                path: '/tools/postback-log',
+                name: 'Postback Log',
+                icon: FeatherIcon.Camera,
+                component: ToolsPostbackLog,
+                header: 'Navigation',
+                roles: ['Admin'],
+                route: PrivateRoute
+            }
+        ]
         },
         {
-            path: '/tools',
+            path: '/tools/track-error',
             name: 'Tracking link error',
             icon: FeatherIcon.Camera,
-            component: Tools,
+            component: ToolsTrackLink,
             header: 'Navigation',
             roles: ['Admin'],
-            route: PrivateRoute
-        },
-        {
-            path: '/tools',
-            name: 'Chrome extension',
-            icon: FeatherIcon.Chrome,
-            component: Tools,
-            roles: ['Admin'],
-            header: 'Navigation',
             route: PrivateRoute
         }
     ]
 };
 // payment
 const paymentRoutes = {
-    path: '/payment',
     name: 'Thanh toán',
     icon: FeatherIcon.Gift,
     header: 'Navigation',
-    component: Payment,
-    roles: ['Admin'],
-    route: PrivateRoute
+    children:[{
+        path: '/payment/cross-check',
+        name: 'Doanh thu',
+        icon: FeatherIcon.Camera,
+        component: CrossCheck,
+        header: 'Navigation',
+        roles: ['Admin'],
+        route: PrivateRoute
+    },
+    {
+        path: '/payment/payment-history',
+        name: 'Lịch sử thanh toán',
+        icon: FeatherIcon.Camera,
+        component: PaymentHis,
+        header: 'Navigation',
+        roles: ['Admin'],
+        route: PrivateRoute
+    }]
 };
 
 // auth

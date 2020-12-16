@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-class Postback extends Component{
+class APIKey extends Component{
     render(){
         return (
-            <h1>Postback</h1>
+            <h1>API key</h1>
         )
     }
 }
-export default Postback
+export default APIKey

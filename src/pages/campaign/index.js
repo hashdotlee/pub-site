@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { Row, Col, Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import Accordions from './Accordions';
-import Cards from './Cards';
+import LeftSidebar from './LeftSidebar';
+import Content from './Content';
 import RightSidebar from './RightSideBar';
 
 class Campaign extends Component {
@@ -38,15 +38,17 @@ class Campaign extends Component {
                 <Col sm={4} xl={3} className="mt-2">
                     <div className="sidebar-content">
                         <div id="sidebar-menu">
-                            <Accordions></Accordions>
+                            <LeftSidebar></LeftSidebar>
                         </div>
                     </div>
                 </Col>
                 <Col sm={8} xl={9} className="mt-2">
-                    <Cards></Cards>
+                    <Content></Content>
                 </Col>
             </Row>
-            <RightSidebar title="Card"><Cards></Cards></RightSidebar>
+            <RightSidebar title="Card">
+                <h1>Right Sidebar</h1>
+            </RightSidebar>
             </React.Fragment>
         ) 
     }
