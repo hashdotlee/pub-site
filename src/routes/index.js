@@ -21,7 +21,7 @@ const ReportClick = React.lazy(() => import('../pages/report/Click'));
 const ReportConversion = React.lazy(() => import('../pages/report/Conversion'));
 const ReportUTM = React.lazy(() => import('../pages/report/UTM'));
 // tools
-const ToolsAPI = React.lazy(() => import('../pages/tool/Profile/APIKey'));
+const APIKey = React.lazy(() => import('../pages/profile/APIKey'));
 const ToolsDealCoupon = React.lazy(() => import('../pages/tool/DealCoupon'));
 const ToolsDeepLink = React.lazy(() => import('../pages/tool/DeepLink'));
 const ToolsPostback = React.lazy(() => import('../pages/tool/Postback'));
@@ -169,7 +169,7 @@ const toolsRoutes = {
             path: '/tools/api',
             name: 'API',
             icon: FeatherIcon.Cloud,
-            component: ToolsAPI,
+            component: APIKey,
             header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute

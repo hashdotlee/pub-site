@@ -140,7 +140,7 @@ class AppMenu extends Component {
                                                 </li>
                                             )}
 
-                                            {item.children ? (
+                                            {item.children && item.header === "Navigation"? (
                                                 <MenuItemWithChildren
                                                     item={item}
                                                     subMenuClassNames="nav-second-level"
