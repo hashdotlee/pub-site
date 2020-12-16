@@ -147,13 +147,13 @@ class AppMenu extends Component {
                                                     activatedMenuItemIds={activatedKeys}
                                                     linkClassNames="side-nav-link"
                                                 />
-                                            ) : (
+                                            ) : (item.header === "Navigation"?(
                                                     <MenuItem
                                                         item={item}
                                                         className={classNames({ 'mm-active': activatedKeys.indexOf(item.id) >= 0 })}
                                                         linkClassName="side-nav-link"
                                                     />
-                                                )}
+                                                ):null)}
                                         </React.Fragment>
                                     );
                                 })}
