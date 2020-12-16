@@ -14,6 +14,7 @@ const Confirm = React.lazy(() => import('../pages/auth/Confirm'));
 const Dashboard = React.lazy(() => import('../pages/dashboard'));
 // campaign
 const Campaign = React.lazy(() => import('../pages/campaign'));
+const CampaignResult = React.lazy(() => import('../pages/campaign/CampaignResult'));
 // report
 const Report = React.lazy(() => import('../pages/report'));
 // tools
@@ -74,7 +75,15 @@ const campaignRoutes = {
     path: '/campaign',
     name: 'Chiến dịch',
     icon: FeatherIcon.Send,
+    header: 'Navigation',
     component: Campaign,
+    exact:true,
+    roles: ['Admin'],
+    route: PrivateRoute
+};
+const campaignResultRoutes = {
+    path: '/campaign/result',
+    component: CampaignResult,
     roles: ['Admin'],
     route: PrivateRoute
 };
@@ -82,12 +91,14 @@ const campaignRoutes = {
 const reportRoutes = {
     path: '/report',
     name: 'Báo cáo',
+    header: 'Navigation',
     icon: FeatherIcon.Book,
     children: [
         {
             path: '/report/conversion',
             name: 'Đơn hàng',
             roles: ['Admin'],
+            header: 'Navigation',
             icon: FeatherIcon.ShoppingBag,
             route: PrivateRoute,
             component: Report
@@ -96,6 +107,7 @@ const reportRoutes = {
             path: '/report/click-traffic',
             name: 'Lưu lượng Click',
             roles: ['Admin'],
+            header: 'Navigation',
             icon: FeatherIcon.MousePointer,
             route: PrivateRoute,
             component: Report
@@ -104,6 +116,7 @@ const reportRoutes = {
             path: '/report/campaigns',
             name: 'Chiến dịch',
             roles: ['Admin'],
+            header: 'Navigation',
             icon: FeatherIcon.Truck,
             route: PrivateRoute,
             component: Report
@@ -112,6 +125,7 @@ const reportRoutes = {
             path: '/report/utm',
             name: 'Báo cáo UTM',
             roles: ['Admin'],
+            header: 'Navigation',
             icon: FeatherIcon.ShoppingBag,
             route: PrivateRoute,
             component: Report
@@ -122,12 +136,14 @@ const reportRoutes = {
 const toolsRoutes = {
     path: '/tools',
     name: 'Công cụ',
+    header: 'Navigation',
     icon: FeatherIcon.Tool,
     children: [
         {
             path: '/tools',
             name: 'Product Link',
             icon: FeatherIcon.Link,
+            header: 'Navigation',
             component: Tools,
             roles: ['Admin'],
             route: PrivateRoute
@@ -137,6 +153,7 @@ const toolsRoutes = {
             name: 'Deep link',
             icon: FeatherIcon.Link2,
             component: Tools,
+            header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -145,6 +162,7 @@ const toolsRoutes = {
             name: 'API',
             icon: FeatherIcon.Cloud,
             component: Tools,
+            header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -153,6 +171,7 @@ const toolsRoutes = {
             name: 'Deal coupon',
             icon: FeatherIcon.CreditCard,
             component: Tools,
+            header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -161,6 +180,7 @@ const toolsRoutes = {
             name: 'Postback URL',
             icon: FeatherIcon.ArrowUpLeft,
             component: Tools,
+            header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -169,6 +189,7 @@ const toolsRoutes = {
             name: 'Tracking link error',
             icon: FeatherIcon.Camera,
             component: Tools,
+            header: 'Navigation',
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -178,6 +199,7 @@ const toolsRoutes = {
             icon: FeatherIcon.Chrome,
             component: Tools,
             roles: ['Admin'],
+            header: 'Navigation',
             route: PrivateRoute
         }
     ]
@@ -187,6 +209,7 @@ const paymentRoutes = {
     path: '/payment',
     name: 'Thanh toán',
     icon: FeatherIcon.Gift,
+    header: 'Navigation',
     component: Payment,
     roles: ['Admin'],
     route: PrivateRoute
@@ -250,12 +273,13 @@ const allRoutes = [
     rootRoute,
     dashboardRoutes,
     campaignRoutes,
+    campaignResultRoutes,
     reportRoutes,
     toolsRoutes,
     paymentRoutes,
     authRoutes,
 ];
 
-const authProtectedRoutes = [dashboardRoutes,campaignRoutes,reportRoutes,toolsRoutes,paymentRoutes];
+const authProtectedRoutes = [dashboardRoutes,campaignRoutes,reportRoutes,toolsRoutes,paymentRoutes,campaignResultRoutes];
 const allFlattenRoutes = flattenRoutes(allRoutes);
 export { allRoutes, authProtectedRoutes, allFlattenRoutes };

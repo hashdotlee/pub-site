@@ -42,7 +42,7 @@ class Accordions extends Component {
                         Nổi bật
                 </Button>
                 </Link>
-                <Link to = {'/'}>
+                <Link to = {'/campaign/result'}>
                 <Button className="ml-2">
                         Tất cả
                 </Button>
@@ -52,7 +52,7 @@ class Accordions extends Component {
                     <CardBody>
                         {Danhmuc.map((item)=>{
                             return(
-                                <NavLink className="font-size-16" href="#">
+                                <NavLink className="font-size-16" href='/campaign/result'>
                                     {item}
                                 </NavLink>
                             )

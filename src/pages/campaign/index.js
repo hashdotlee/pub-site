@@ -3,6 +3,7 @@ import { Row, Col, Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import Accordions from './Accordions';
 import Cards from './Cards';
+import RightSidebar from './RightSideBar';
 
 class Campaign extends Component {
     render(){
@@ -45,6 +46,7 @@ class Campaign extends Component {
                     <Cards></Cards>
                 </Col>
             </Row>
+            <RightSidebar title="Card"><Cards></Cards></RightSidebar>
             </React.Fragment>
         ) 
     }
