@@ -3,17 +3,16 @@ import { Card, CardBody, Row, Col, Button, CardHeader } from 'reactstrap';
 import Select from 'react-select';
 import img1 from '../../assets/images/small/img-8.jpg';
 
-
 const Content = () => {
-
     return (
         <React.Fragment>
-            <Row className="mt-3 mb-1">
+            <Row className="mb-1">
                 <Col>
                 Tổng số: 18
                 </Col>
                 <Col xl={3}>
                         <Select
+                                name="order"
                                 className="react-select"
                                 classNamePrefix="react-select"
                                 options={[

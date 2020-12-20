@@ -7,13 +7,13 @@ class CampaignResult extends Component{
     render(){
         return (
             <React.Fragment>
-                <Row>
-                    <Col lg={3}>
+                <Row className="mt-3">
+                    <Col md={4} xl={3}>
                         <Filter>
                         </Filter>
 
                     </Col>
-                    <Col lg={9}>
+                    <Col md={8} xl={9}>
                         <Content>
                         </Content>
                     </Col>

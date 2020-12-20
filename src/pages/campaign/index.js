@@ -3,13 +3,14 @@ import { Row, Col, Breadcrumb, BreadcrumbItem, Button} from 'reactstrap';
 import {Link} from 'react-router-dom';
 import LeftSidebar from './LeftSidebar';
 import Content from './Content';
+import Register from './Register';
 import RightSidebar from './RightSideBar';
 
 class Campaign extends Component {
     render(){
         return (
             <React.Fragment>
-            <Row className="page-title mt-2">
+            <Row className="page-title mt-1">
             <Col xl={3}>
                 <h4 className="mb-1 mt-0">Chiến dịch</h4>
             </Col>
@@ -46,8 +47,8 @@ class Campaign extends Component {
                     <Content></Content>
                 </Col>
             </Row>
-            <RightSidebar title="Card">
-                <h1>Right Sidebar</h1>
+            <RightSidebar title="Thông tin chi tiết">
+                    <Register></Register>
             </RightSidebar>
             </React.Fragment>
         ) 

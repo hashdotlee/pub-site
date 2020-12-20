@@ -21,13 +21,15 @@ const ReportClick = React.lazy(() => import('../pages/report/Click'));
 const ReportConversion = React.lazy(() => import('../pages/report/Conversion'));
 const ReportUTM = React.lazy(() => import('../pages/report/UTM'));
 // tools
-const APIKey = React.lazy(() => import('../pages/profile/APIKey'));
 const ToolsDealCoupon = React.lazy(() => import('../pages/tool/DealCoupon'));
 const ToolsDeepLink = React.lazy(() => import('../pages/tool/DeepLink'));
 const ToolsPostback = React.lazy(() => import('../pages/tool/Postback'));
 const ToolsPostbackLog = React.lazy(() => import('../pages/tool/PostbackLog'));
 const ToolsProductLink = React.lazy(() => import('../pages/tool/ProductLink'));
 const ToolsTrackLink = React.lazy(() => import('../pages/tool/TrackLink'));
+//profile
+const Profile = React.lazy(() => import('../pages/profile/index'));
+
 // payment
 const CrossCheck = React.lazy(() => import('../pages/payment/CrossCheck'));
 const PaymentHis = React.lazy(() => import('../pages/payment/PaymentHis'));
@@ -141,6 +143,15 @@ const reportRoutes = {
         }
     ]
 };
+//profile 
+const profileRoutes = {
+    path: '/profile/:tab',
+    name: 'Thông tin cá nhân',
+    component: Profile,
+    roles: ['Admin'],
+    exact:true,
+    route: PrivateRoute
+};
 // tools
 const toolsRoutes = {
     name: 'Công cụ',
@@ -166,11 +177,11 @@ const toolsRoutes = {
             route: PrivateRoute
         },
         {
-            path: '/tools/api',
+            path: '/profile/api-key',
             name: 'API',
             icon: FeatherIcon.Cloud,
-            component: APIKey,
             header: 'Navigation',
+            component: Profile,
             roles: ['Admin'],
             route: PrivateRoute
         },
@@ -219,7 +230,7 @@ const toolsRoutes = {
     ]
 };
 // payment
-const paymentRoutes = {
+const PaymentRoutes = {
     name: 'Thanh toán',
     icon: FeatherIcon.Gift,
     header: 'Navigation',
@@ -304,10 +315,11 @@ const allRoutes = [
     campaignResultRoutes,
     reportRoutes,
     toolsRoutes,
-    paymentRoutes,
+    PaymentRoutes,
+    profileRoutes,
     authRoutes,
 ];
 
-const authProtectedRoutes = [dashboardRoutes,campaignRoutes,reportRoutes,toolsRoutes,paymentRoutes,campaignResultRoutes];
+const authProtectedRoutes = [dashboardRoutes,campaignRoutes,reportRoutes,toolsRoutes,PaymentRoutes,campaignResultRoutes,profileRoutes];
 const allFlattenRoutes = flattenRoutes(allRoutes);
 export { allRoutes, authProtectedRoutes, allFlattenRoutes };

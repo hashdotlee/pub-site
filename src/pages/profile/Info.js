@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
 
-class Profile extends Component{
+class Infor extends Component{
     render(){
         return (
-            <h1>API key</h1>
+            <h1>Information</h1>
         )
     }
 }
-export default Profile
+export default Infor

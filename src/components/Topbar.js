@@ -40,7 +40,7 @@ const Notifications = [{
 const ProfileMenus = [{
   label: 'My Account',
   icon: User,
-  redirectTo: "/",
+  redirectTo: "/profile/info",
 },
 {
   label: 'Settings',
